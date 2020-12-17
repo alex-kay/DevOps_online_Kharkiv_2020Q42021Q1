@@ -16,3 +16,7 @@
 #### 2. Configuration of virtual machines
 * Configured my USB flash drive "Corsair Flash Voyage" to be connected to VM1 as USB flash drive
 ![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2014.35.38.png)
+* Added my FaceTime Webcam as a webcam device to VM1 (could not display it in Cheese app, but managed to find a ![python script](https://automaticaddison.com/real-time-object-tracking-using-opencv-and-a-webcam/) which displays webcam in a small window)
+![Screenshot 5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2023.31.51.png)
+* Mounted a shared folder to VM1 -- this tasks folder and created a test file there from VM1
+![Screenshot 6](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2001.39.57.png)

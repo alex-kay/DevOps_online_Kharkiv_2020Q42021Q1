@@ -20,3 +20,5 @@
 ![Screenshot 5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2023.31.51.png)
 * Mounted a shared folder to VM1 -- this tasks folder and created a test file there from VM1
 ![Screenshot 6](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2001.39.57.png)
+* Configured a host-only interface between VM1 and VM2 - checked connection
+![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2003.46.09.png)

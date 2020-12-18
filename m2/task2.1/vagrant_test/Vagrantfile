@@ -1,0 +1,85 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "hashicorp/precise64"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+    vb.cpus = 1
+    vb.memory = "1024"
+  end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+    # Configure vagrant-cachier plugin
+      if Vagrant.has_plugin?("vagrant-cachier")
+        # Configure cached packages to be shared between instances of the same base box.
+        # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
+        config.cache.scope = :box
+    
+        # OPTIONAL: If you are using VirtualBox, you might want to use that to enable
+        # NFS for shared folders. This is also very useful for vagrant-libvirt if you
+        # want bi-directional sync
+        config.cache.synced_folder_opts = {
+          type: :nfs,
+          # The nolock option can be useful for an NFSv3 client that wants to avoid the
+          # NLM sideband protocol. Without this option, apt-get might hang if it tries
+          # to lock files needed for /var/cache/* operations. All of this can be avoided
+          # by using NFSv4 everywhere. Please note that the tcp option is not the default.
+          mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+        }
+        # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
+      end
+
+      config.vm.network "private_network", type: "dhcp"
+
+      # @end: Configure vagrant-cachier plugin
+      if Vagrant.has_plugin?("vagrant-hostmanager")
+        config.hostmanager.enabled = true
+        config.hostmanager.manage_host = true
+        config.hostmanager.ignore_private_ip = false
+        config.hostmanager.include_offline = true
+        config.hostmanager.ip_resolver = proc do |vm, resolving_vm|
+          if vm.id
+            `VBoxManage guestproperty get #{vm.id} "/VirtualBox/GuestInfo/Net/1/V4/IP"`.split()[1]
+          end
+        end
+      end
+
+  config.vm.define "server", primary: true do |server_config|
+    server_config.vm.hostname = 'server'
+    server_config.vm.provision "shell", inline: "apt-get update --fix-missing; apt-get install apache2 -y; service apache2 start"
+  end
+
+  config.vm.define "client" do |client_config|
+    client_config.vm.hostname = 'client'
+    client_config.vm.provision "shell", inline: "apt-get update --fix-missing; apt-get install curl -y; curl server -I > /vagrant/server-response.txt"
+  end
+
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update --fix-missing
+  # SHELL
+end

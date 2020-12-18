@@ -32,3 +32,5 @@
 ![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.31.04.png)
 * Provisioned two VMs, web client and web server, connected via private network
 ![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2018.35.31.png)
+* Made vagrant boxes out of these VMs
+![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2019.05.43.png)

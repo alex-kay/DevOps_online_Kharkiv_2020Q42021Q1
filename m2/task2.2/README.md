@@ -16,13 +16,14 @@ Repeated, created own VM in the AWS cloud and connect to it. Attached a static I
 * Reviewed the example Store and Retrieve a File. Created own bucket. Batch uploaded files to S3 using
 the AWS CLI sync command.
 ![Screenshot 5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.2%2FScreenshots%2FScreenshot%202020-12-19%20at%2006.53.36.png)
+* Reviewed the 10-minute [example](https://aws.amazon.com/getting-started/hands-on/get-a-domain/). Registered own domain name on Route 53.
+![Screenshot 6](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.2%2FScreenshots%2FScreenshot%202020-12-23%20at%2000.12.15.png)
+* Reviewed the 10-minute example Deploy Docker Containers on Amazon Elastic
+Container Service (Amazon ECS). Repeated, created a cluster, and ran the online demo
+application (Apache web server) with custom settings.
+![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.2%2FScreenshots%2FScreenshot%202020-12-23%20at%2013.23.28.png)
 
-## TODO:
+## TODO
 
-13.  Review the 10-minute example. Explore the possibilities of creating your own domain
-and domain name for your site.
-14. Review the 10-minute example Deploy Docker Containers on Amazon Elastic
-Container Service (Amazon ECS). Repeat, create a cluster, and run the online demo
-application or better other application with custom settings.
-15. Create a static website on Amazon S3, publicly available (link1 or link2 - using a custom
+* Create a static website on Amazon S3, publicly available (link1 or link2 - using a custom
 domain registered with Route 53). Post on the page your own photo, the name of the educational program (EPAM DevOps online Winter 2020/2021), the list of AWS services with which the student worked within the educational program or earlier and the full list with links of completed labs (based on tutorials or qwiklabs or re:Invent 2020). Provide the link to the website in your report.

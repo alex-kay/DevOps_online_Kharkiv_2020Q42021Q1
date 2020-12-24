@@ -1,1 +1,1 @@
-# # EPAM University Programs DevOps external course
+# EPAM University Programs DevOps external course

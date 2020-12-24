@@ -14,32 +14,32 @@ WMware Workstation is a type 2 hypervisor, paid, has advanced graphics support o
 ### 1. First run VirtualBox and Virtual Machine (VM)
 
 * Installing Ubuntu Server on VM1:
-![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/13d0d843aea40ddca8aa64b879b462a221e6ba16/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2019.20.25.png)
+![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/13d0d843aea40ddca8aa64b879b462a221e6ba16/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2019.20.25.jpg)
 * Cloning VM2 from VM1:
-![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/13d0d843aea40ddca8aa64b879b462a221e6ba16/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2019.49.54.png)
+![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/13d0d843aea40ddca8aa64b879b462a221e6ba16/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2019.49.54.jpg)
 * Upgrading software on WM1 and making snapshots:
-![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/13d0d843aea40ddca8aa64b879b462a221e6ba16/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2020.14.58.png)
+![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/13d0d843aea40ddca8aa64b879b462a221e6ba16/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2020.14.58.jpg)
 * Importing .ova file, made from VM1, to VirtualBox:
-![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/0034dcfa7ec39e0add623a18609ccaeba466a2b9/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2020.52.31.png)
+![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/0034dcfa7ec39e0add623a18609ccaeba466a2b9/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2020.52.31.jpg)
 
 ### 2. Configuration of virtual machines
 
 * Configured my USB flash drive to be connected to VM1 as USB flash drive
-![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2014.35.38.png)
+![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2014.35.38.jpg)
 * Added my webcam as a webcam device to VM1 (could not display it in Cheese app, but managed to find a [python script](https://automaticaddison.com/real-time-object-tracking-using-opencv-and-a-webcam/) which displays webcam in a small window)
-![Screenshot 5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2023.31.51.png)
+![Screenshot 5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2023.31.51.jpg)
 * Mounted a shared folder to VM1 -- this tasks folder and created a test file there from VM1
-![Screenshot 6](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2001.39.57.png)
+![Screenshot 6](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2001.39.57.jpg)
 * Configured a host-only interface between VM1 and VM2 - checked connection
-![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2003.46.09.png)
+![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2003.46.09.jpg)
 * Configured a NAT network connecting VM1 and VM2
-![Screenshot 8](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.13.08.png)
+![Screenshot 8](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.13.08.jpg)
 
 ### PART 3. WORK WITH VAGRANT
 
 * Ran a first Vagrant VM and connected to it via SSH
-![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.31.04.png)
+![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.31.04.jpg)
 * Provisioned two VMs, web client and web server, connected via private network
-![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2018.35.31.png)
+![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2018.35.31.jpg)
 * Made vagrant boxes out of these VMs
-![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2019.05.43.png)
+![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2019.05.43.jpg)

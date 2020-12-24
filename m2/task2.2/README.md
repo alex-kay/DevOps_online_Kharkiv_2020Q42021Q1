@@ -1,6 +1,6 @@
 # Module 2 Virtualization and Cloud Basic
 
-## Task 2.2. AWS
+## Task 2.2
 
 * Reviewed the 10-minute example Launch a Linux Virtual Machine with Amazon Lightsail.
 Repeated, created own VM in the AWS cloud and connect to it. Attached a static IP to it.
@@ -22,8 +22,4 @@ the AWS CLI sync command.
 Container Service (Amazon ECS). Repeated, created a cluster, and ran the online demo
 application (Apache web server) with custom settings.
 ![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.2%2FScreenshots%2FScreenshot%202020-12-23%20at%2013.23.28.png)
-
-## TODO
-
-* Create a static website on Amazon S3, publicly available (link1 or link2 - using a custom
-domain registered with Route 53). Post on the page your own photo, the name of the educational program (EPAM DevOps online Winter 2020/2021), the list of AWS services with which the student worked within the educational program or earlier and the full list with links of completed labs (based on tutorials or qwiklabs or re:Invent 2020). Provide the link to the website in your report.
+* Created a static website on Amazon S3, publicly available. [S3 STATIC SITE LINK](http://alexkurylo.name.s3-website-us-east-1.amazonaws.com/)

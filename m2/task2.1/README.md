@@ -1,6 +1,15 @@
 # Module 2 Virtualization and Cloud Basic
 
-## Task 2.1 screenshots
+## PART 1. HYPERVISORS
+
+The most popular hypervisors are VMware ESXi, Microsoft Hyper-V, KVM and WMware Workstation, Oracle VirtualBox (type 2).
+VMware ESXi is a type 1 hypervisor with the most functions of type 1 hv-s, but paid license.
+Hyper-V is a type 1 hypervisor bundled with MS Windows OS, has free Hyper-V Server 2016.
+KVM is a type 1 hypervisor for Linux, a lightweight, free and open-source solution.
+VirtualBox is a type 2 hypervisor, free and has more command line tools.
+WMware Workstation is a type 2 hypervisor, paid, has advanced graphics support on host OS.
+
+## PART 2. WORK WITH VIRTUALBOX
 
 ### 1. First run VirtualBox and Virtual Machine (VM)
 
@@ -13,11 +22,11 @@
 * Importing .ova file, made from VM1, to VirtualBox:
 ![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/0034dcfa7ec39e0add623a18609ccaeba466a2b9/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-12%20at%2020.52.31.png)
 
-#### 2. Configuration of virtual machines
+### 2. Configuration of virtual machines
 
-* Configured my USB flash drive "Corsair Flash Voyage" to be connected to VM1 as USB flash drive
+* Configured my USB flash drive to be connected to VM1 as USB flash drive
 ![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2014.35.38.png)
-* Added my FaceTime Webcam as a webcam device to VM1 (could not display it in Cheese app, but managed to find a [python script](https://automaticaddison.com/real-time-object-tracking-using-opencv-and-a-webcam/) which displays webcam in a small window)
+* Added my webcam as a webcam device to VM1 (could not display it in Cheese app, but managed to find a [python script](https://automaticaddison.com/real-time-object-tracking-using-opencv-and-a-webcam/) which displays webcam in a small window)
 ![Screenshot 5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-17%20at%2023.31.51.png)
 * Mounted a shared folder to VM1 -- this tasks folder and created a test file there from VM1
 ![Screenshot 6](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2001.39.57.png)
@@ -26,7 +35,7 @@
 * Configured a NAT network connecting VM1 and VM2
 ![Screenshot 8](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.13.08.png)
 
-### 3. Work with Vagrant
+### PART 3. WORK WITH VAGRANT
 
 * Ran a first Vagrant VM and connected to it via SSH
 ![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m2%2Ftask2.1%2FScreenshots%2FScreenshot%202020-12-18%20at%2016.31.04.png)

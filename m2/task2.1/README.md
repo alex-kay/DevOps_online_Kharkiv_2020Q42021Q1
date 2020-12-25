@@ -39,7 +39,7 @@ WMware Workstation is a type 2 hypervisor, paid, has advanced graphics support o
 
 * Ran a first Vagrant VM and connected to it via SSH
 ![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/52f7eac1741bfdbfe404307e0c2934c9149015d7/m2/task2.1/Screenshots/Screenshot%202020-12-18%20at%2016.31.04.jpg)
-* Provisioned two VMs, web client and web server, connected via private network
+* Provisioned two VMs, web client and web server, connected via private network. [Vagrantfile link](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/451225cae9202a711c90c4f3d0e1af6ddaecb76d/m2/task2.1/vagrant_test/Vagrantfile) here.
 ![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/52f7eac1741bfdbfe404307e0c2934c9149015d7/m2/task2.1/Screenshots/Screenshot%202020-12-18%20at%2018.35.31.jpg)
 * Made vagrant boxes out of these VMs
 ![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/52f7eac1741bfdbfe404307e0c2934c9149015d7/m2/task2.1/Screenshots/Screenshot%202020-12-18%20at%2019.05.43.jpg)

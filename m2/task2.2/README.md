@@ -21,5 +21,4 @@ Repeated, created own VM in the AWS cloud and connect to it. Attached a static I
 Container Service (Amazon ECS). Repeated, created a cluster, and ran the online demo
 application (Apache web server) with custom settings.
 ![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/52f7eac1741bfdbfe404307e0c2934c9149015d7/m2/task2.2/Screenshots/Screenshot%202020-12-23%20at%2013.23.28.jpg)
-* Created a static website on Amazon S3, publicly available. [S3 STATIC SITE LINK](http://alexkurylo.name.s3-website-us-east-1.amazonaws.com/)
-* Added DNS records for my route 53 domain. [ROUTE 53 DOMAIN LINK POINTING TO S3 STATIC SITE BUCKET](http://alexkurylo.name)
+* Created a static website on Amazon S3, with a Route 53 domain [ROUTE_53_DOMAIN_TO_S3_STATIC_SITE_BUCKET](http://alexkurylo.name)

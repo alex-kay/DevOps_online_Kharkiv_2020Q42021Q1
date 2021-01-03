@@ -10,10 +10,10 @@
 * ~~task2.1~~
 * ~~task2.2~~
 * ~~task3.1~~
+* ~~task4.1~~
+* ~~task4.2~~
 
 #### Todo
 
-* ~~task4.1~~
-* task4.2
 * task4.3
 * task4.4

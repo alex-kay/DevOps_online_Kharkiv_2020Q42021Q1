@@ -3,11 +3,12 @@
 1. How many states could has a process in Linux?
 
 Process states are:
-  - created;
-  - ready;
-  - waiting;
-  - running;
-  - terminated;
+
+* created;
+* ready;
+* waiting;
+* running;
+* terminated;
 
 2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current process.
 Installed `psmisc` package on CentOS7. Used command `pstree -h` to highlight current process tree:
@@ -56,23 +57,36 @@ To do this, use command `ps -u username`:
 
 *top* command displays real-time info about running processes, CPU and memory load.
 11. Display the processes of the specific user using the top command.
-  
+
 Similar to *ps*, use command `top -u username`:
 ![Screenshot 11](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-01-27%20at%2021.51.37.jpg)
 12.  What interactive commands can be used to control the top command? Give a couple of examples.
-13.  Sort the contents of the processes window using various parameters (for example, the amount of processor time taken up, etc.)
-14.  Concept of priority, what commands are used to set priority?
+
+`k` key opens a prompt to kill a process.
+`r` key opens a prompt to renice a process priority.
+`f` key opens a menu to configure fields shown.
+`c` key toggles full path of process commands.
+13.   Sort the contents of the processes window using various parameters (for example, the amount of processor time taken up, etc.)
+
+To sort processes by time taken, use key `Shift` + `T`;
+by CPU used, `Shift` + `P`;
+by memory used, `Shift` + `M`:
+![Screenshot 13](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-01-27%20at%2022.40.29.jpg)
+14.     Concept of priority, what commands are used to set priority?
 
 To run a process with specific priority, *nice* command is used. To change priority of an already running process, use *renice* command.
-15. Can I change the priority of a process using the top command? If so, how?
+15.    Can I change the priority of a process using the top command? If so, how?
 
 A process can be *reniced* from *top* using key `r`.
-16. Examine the kill command. How to send with the kill command
+16.   Examine the kill command. How to send with the kill command
 process control signal? Give an example of commonly used signals.
 
 *kill* command sends a shutdown signal to a process. To send a specific signal, use `kill -N process`. The most common signals are 15 for default termination and 9 for killing process.
-17. Commands jobs, fg, bg, nohup. What are they for? Use the sleep, yes command to demonstrate the process control mechanism with fg, bg.
+17.  Commands jobs, fg, bg, nohup. What are they for? Use the sleep, yes command to demonstrate the process control mechanism with fg, bg.
 
-*jobs* command is used to view background processes. *fg* command puts a background process into foreground
+*jobs* command is used to view active processes.
+*fg* command resumes a process in foreground.
+*bg* command resumes a process in background.
+*nohup* runs a command immune to hangup signals.
 
 --

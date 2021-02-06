@@ -4,7 +4,7 @@
 
 ### Homework status
 
-todo: 5.2
+todo: 6.1
 
 #### Done
 
@@ -17,3 +17,5 @@ todo: 5.2
 * ~~task4.3~~
 * ~~task4.4~~
 * ~~task5.1~~
+* ~~task5.2~~
+* ~~task5.3~~

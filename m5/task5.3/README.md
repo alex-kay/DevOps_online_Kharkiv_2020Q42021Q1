@@ -90,7 +90,8 @@ process control signal? Give an example of commonly used signals.
 *bg* command resumes a process in background.
 *nohup* runs a command immune to hangup signals.
 
---
+*jobs* command shows jobs numbers in brackets like `[2]`, so jobs can be easily referenced using `%number`:
+![Screenshot 17](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-02-06%20at%2004.20.13.jpg)
 
 ## Part 2
 

@@ -52,7 +52,8 @@ To do this, use command `ps -u username`:
 
 9.  What utilities can be used to analyze existing running tasks (by analyzing the help for the ps command)?
 
---
+Command `ps aux` shows all currently running processes.
+
 10. What information does top command display?
 
 *top* command displays real-time info about running processes, CPU and memory load.
@@ -90,3 +91,46 @@ process control signal? Give an example of commonly used signals.
 *nohup* runs a command immune to hangup signals.
 
 --
+
+## Part 2
+
+1. Check the implementability of the most frequently used OPENSSH commands in the MS Windows operating system.
+
+*scp* and *ssh* commands are implemented in MS Windows as checked in the example screenshot:
+![Screenshot 2.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Capture1.PNG)
+
+2. Implement basic SSH settings to increase the security of the client-server connection
+
+Basic SSH security settings are:
+- disable root login;
+- change default 22 port;
+- disable password auth, leave only auth by key;
+To implement these, following lines in */etc/ssh/shhd_config* file are to be changed, example:
+```
+PermitRootLogin no
+Port 22999
+PasswordAuthentication no
+```
+
+3. List the options for choosing keys for encryption in SSH. Implement 3 of them.
+
+When generating SSH key with *ssh-keygen*, you can specify options like `-t` for algorithm, `-b` for key size and `-f` for key file destination, `-p` for passphrase, for example:
+`ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -p mypassphrase -q`
+`-q` option is added for silent output.
+
+4. Implement port forwarding for the SSH client from the host machine to the guest Linux virtual machine behind NAT.
+
+In Virtualbox, set up a port forwarding from port 22999 to port 22 on guest VM:
+![Screenshot 2.4.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-02-06%20at%2003.12.47.jpg)
+Then, tested SSH connection connecting to localhost on selected port 22999:
+![Screenshot 2.4.2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-02-06%20at%2003.14.28.jpg)
+
+
+5. Intercept (capture) traffic (tcpdump, wireshark) while authorizing the remote client on the server using ssh, telnet, rlogin. Analyze the result.
+
+When connecting from one PC to another via SSH on my home LAN, packets data is encrypted when viewing in Wireshark:
+![Screenshot 2.5.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-01-31%20at%2002.51.46.jpg)
+
+Another thing is Telnet, when logining to my home router, packets with login name characters are in plain text, same for passwords (packet on screenshot showing character 'a' of 'admin' login):
+
+![Screenshot 2.5.2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m5/task5.3/Screenshots/Screenshot%202021-02-06%20at%2004.08.26.jpg)

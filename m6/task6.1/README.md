@@ -3,12 +3,13 @@
 
 1. Create virtual machines connection according to figure 1:
 
+```
 Internet
 |
 Host
 |
 VM1 – VM2
-
+```
 
 2. VM2 has one interface (internal), VM1 has 2 interfaces (NAT and internal). Configure all network interfaces in order to make VM2 has an access to the Internet (iptables, forward, masquerade).
 
@@ -38,7 +39,7 @@ route add default gw 10.0.0.101
 
 Iptables config can be saved using `iptables-save` command on VM1.
 
-Also, added `dns-nameservers 8.8.8.8 8.8.4.4` line on VM2 *interfaces* file to access internet.
+Also, added `dns-nameservers 8.8.8.8 8.8.4.4` line on VM2 *interfaces* file.
 
 3. Check the route from VM2 to Host.
 
@@ -59,7 +60,7 @@ After VM2 has established connection to the Internet via VM1 NAT, could install 
 
 7. Determine the default gateway for your HOST and display routing table.
 
-???
+![Screenshot 7](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m6/task6.1/Screenshots/Screenshot%202021-02-12%20at%2022.32.27.jpg)
 
 8. Trace the route to google.com.
 

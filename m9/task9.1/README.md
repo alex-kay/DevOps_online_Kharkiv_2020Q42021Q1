@@ -6,23 +6,48 @@
 * If number divided by 3 and 5 without rest, print “FizzBuzz”.
 
 ```python
-def fizzbuzz(i):
+def fizz_buzz(i):
     if i % 3 == 0 and i % 5 == 0:
-        print("fizzbuzz")
+        return "FizzBuzz"
     elif i % 3 == 0:
-        print("fizz")
+        return "Fizz"
     elif i % 5 == 0:
-        print("buzz")
+        return "Buzz"
     else:
-        print(i)
+        return ""
 
 numbers = range(1,101)
 
 for i in numbers:
-    fizzbuzz(i)
+    print(fizz_buzz(i))
 ```
 
 * 1* Make unit tests for your new FizzBuzz function.
+
+```python
+class FizzBuzzTests(unittest.TestCase):
+    def test_fizz(self):
+        numbers=range(33,101, 33)
+        for i in numbers:
+            result = fizz_buzz(i)
+            with self.subTest(result=result):
+                    self.assertEqual(result, 'Fizz')
+    def test_buzz(self):
+        numbers=range(55,111, 55)
+        for i in numbers:
+            result = fizz_buzz(i)
+            with self.subTest(result=result):
+                self.assertEqual(result, 'Buzz')
+    def test_fizzbuzz(self):
+        numbers=range(15,151, 15)
+        for i in numbers:
+            result = fizz_buzz(i)
+            with self.subTest(result=result):
+                self.assertEqual(result, 'FizzBuzz')
+
+if __name__ == '__main__':
+    unittest.main()
+```
 
 * Develop count_vowels function for counting vowels in input text.
 * Example of usage

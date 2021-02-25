@@ -42,3 +42,11 @@
 
 * Build finally successed after i changed rights for apache /var/www directory.
 ![Screenshot 4.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2002.06.10.jpg)
+* Built webpage can be seen on web-server 80 port.
+![Screenshot 4.2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2002.10.29.jpg)
+* Changed text in src/index.html file and commited changes to github.
+![Screenshot 4.3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2002.17.26.jpg)
+* Jenkins polled github and initiated build job in a minute.
+![Screenshot 4.4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2002.18.35.jpg)
+* Done; webpage changed on web-server instance.
+![Screenshot 4.5](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2002.18.49.jpg)

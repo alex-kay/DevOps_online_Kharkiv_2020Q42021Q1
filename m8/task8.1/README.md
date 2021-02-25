@@ -15,14 +15,30 @@
 * Created three EC2 instances: jenkins-master, jenkins-build agent, web-server. AMI used is ubuntu 16.04 on all 3 machines.
 * Installed java and jenkins on jenkins-master, installed recommended plugins.
 ![Screenshot 1.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2000.08.33.jpg)
-* Added SSH public key from jenkins-master to jenkins-build.
+* Added SSH public key from jenkins-master to jenkins-build. Installed java on jenkins-build.
 ![Screenshot 1.2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2000.13.01.jpg)
 * Added jenkins-build as a build node for jenkins-master.
 ![Screenshot 1.3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2000.17.12.jpg)
 * Build node jenkins-build succesfully added.
 ![Screenshot 1.4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2000.18.24.jpg)
 
-## Step 2: Creating Job
+## Step 2: Preparing for a job
 
 * Created a test job to be sure it's building on build node.
 ![Screenshot 2.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2001.04.40.jpg)
+* Added SSH key to jenkins .ssh directory on jenkins-master. Copied this master node key also to web-server.
+![Screenshot 2.2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2001.14.04.jpg)
+* Installed nodejs and npm on jenkins-build, apache2 on web-server. Added ssh key from jenkins to Github, authenticated on Github.
+![Screenshot 2.3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2001.24.04.jpg)
+
+## Step 3: Creating job
+
+* Creating job, added Git repository and key. Set Jenkins to poll Github every minute.
+![Screenshot 3.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2001.31.44.jpg)
+* Added build actions: install npm packages, run build task and copy built dist directory over SSH to web-server.
+![Screenshot 3.2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2001.57.19.jpg)
+
+## Step 4: watching changes
+
+* Build finally successed after i changed rights for apache /var/www directory.
+![Screenshot 4.1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m8/task8.1/Screenshots/Screenshot%202021-02-25%20at%2002.06.10.jpg)

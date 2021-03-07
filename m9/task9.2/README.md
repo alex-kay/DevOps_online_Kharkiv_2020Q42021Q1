@@ -42,10 +42,16 @@ if __name__ == "__main__":
 
 ![Screenshot 1](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m9/task9.2/Screenshots/Screenshot%202021-03-07%20at%2003.34.27.jpg)
 
-* Run docker image:
+* Run docker container:
 
 ![Screenshot 2](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m9/task9.2/Screenshots/Screenshot%202021-03-07%20at%2003.41.37.jpg)
 
 * View app in browser:
 
 ![Screenshot 3](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m9/task9.2/Screenshots/Screenshot%202021-03-07%20at%2003.37.41.jpg)
+
+* Pushed image to Docker Hub:
+
+![Screenshot 4](https://github.com/alex-kay/DevOps_online_Kharkiv_2020Q42021Q1/blob/master/m9/task9.2/Screenshots/Screenshot%202021-03-07%20at%2003.52.13.jpg)
+
+Image now available at [alexkaydocker/mycatapp](https://hub.docker.com/r/alexkaydocker/mycatapp)

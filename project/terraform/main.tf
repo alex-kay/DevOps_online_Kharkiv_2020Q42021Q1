@@ -16,7 +16,7 @@ resource "aws_instance" "jenkins-main" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
   key_name      = "deployer"
-  security_groups = ["${aws_security_group.ingress-main.name}"]
+  security_groups = ["${aws_security_group.in-8080.name}"]
   user_data = <<-EOF
     #!/bin/bash
     echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
@@ -37,7 +37,7 @@ resource "aws_instance" "jenkins-builder" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
   key_name      = "deployer"
-  security_groups = ["${aws_security_group.ingress-builder.name}"]
+  security_groups = ["${aws_security_group.in-ssh.name}"]
   user_data = <<-EOF
     #!/bin/bash
     echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
@@ -50,22 +50,30 @@ resource "aws_instance" "jenkins-builder" {
   }
 }
 
-resource "aws_instance" "web-server" {
+resource "aws_instance" "web-server-dev" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
   key_name      = "deployer"
-  security_groups = ["${aws_security_group.ingress-server.name}"]
+  security_groups = ["${aws_security_group.in-server.name}"]
   user_data = <<-EOF
     #!/bin/bash
     echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    sudo yum update -y
-    sudo yum install httpd -y
-    sudo systemctl enable httpd
-    sudo systemctl start httpd
-    sudo chmod go+w -R /var/www/html
     EOF
   tags = {
-    Name = "WebServer"
+    Name = "WebServerDev"
+  }
+}
+resource "aws_instance" "web-server-prod" {
+  ami           = "ami-038f1ca1bd58a5790"
+  instance_type = "t2.micro"
+  key_name      = "deployer"
+  security_groups = ["${aws_security_group.in-server.name}"]
+  user_data = <<-EOF
+    #!/bin/bash
+    echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
+    EOF
+  tags = {
+    Name = "WebServerProd"
   }
 }
 
@@ -73,7 +81,7 @@ resource "aws_instance" "web-server" {
 #   key_name   = "deployer"
 #   public_key = "${var.KEYPUB}"
 # }
-resource "aws_security_group" "ingress-main" {
+resource "aws_security_group" "in-8080" {
   name = "allow-8080-sg"
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -87,7 +95,6 @@ resource "aws_security_group" "ingress-main" {
     to_port = 8080
     protocol = "tcp"
   }
-// Terraform removes the default rule
   egress {
     from_port = 0
     to_port = 0
@@ -95,7 +102,7 @@ resource "aws_security_group" "ingress-main" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-resource "aws_security_group" "ingress-builder" {
+resource "aws_security_group" "in-ssh" {
   name = "allow-22-sg"
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -103,7 +110,6 @@ resource "aws_security_group" "ingress-builder" {
     to_port = 22
     protocol = "tcp"
   }
-// Terraform removes the default rule
   egress {
     from_port = 0
     to_port = 0
@@ -111,7 +117,7 @@ resource "aws_security_group" "ingress-builder" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-resource "aws_security_group" "ingress-server" {
+resource "aws_security_group" "in-server" {
   name = "allow-http-sg"
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -131,7 +137,6 @@ resource "aws_security_group" "ingress-server" {
     to_port = 443
     protocol = "tcp"
   }
-// Terraform removes the default rule
   egress {
     from_port = 0
     to_port = 0

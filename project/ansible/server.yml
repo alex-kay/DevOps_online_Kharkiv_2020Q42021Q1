@@ -1,0 +1,16 @@
+- hosts: servers
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: latest
+    - name: Enable and start Apache
+      service:
+        name: httpd
+        enabled: yes
+        state: started
+    - name: Change www/html dir permissions
+      file:
+        path: /var/www/html
+        recurse: yes
+        mode: go+w

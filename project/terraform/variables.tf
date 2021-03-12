@@ -7,3 +7,7 @@ variable "KEYPUB" {
   description = "SSH Key public"
   type        = string
 }
+variable "KEY_ANSIBLE" {
+  description = "default SSH id_rsa key for Ansible"
+  type        = string
+}

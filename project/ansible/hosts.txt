@@ -1,6 +1,6 @@
 [jenkins]
-JenkinsMain ansible_host=18.209.16.27 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
-JenkinsBuilder ansible_host=54.147.169.42 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
+JenkinsMain ansible_host=54.237.217.133 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
+JenkinsBuilder ansible_host=54.160.115.97 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
 [servers]
-WebServerDev ansible_host=3.85.51.226 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
-WebServerProd ansible_host=54.91.178.146 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
+WebServerDev ansible_host=100.25.33.200 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes
+WebServerProd ansible_host=100.25.48.63 ansible_user=ec2-user ansible_ssh_private_key=/home/k/.ssh/deployer.pem  ansible_become=yes

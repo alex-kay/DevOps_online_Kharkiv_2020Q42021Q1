@@ -1,6 +1,6 @@
 [jenkins]
-JenkinsBuilder ansible_host=34.203.246.6 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
-JenkinsMain ansible_host=54.144.49.198 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
+JenkinsBuilder ansible_host=52.3.244.103 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
+JenkinsMain ansible_host=174.129.68.129 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
 [servers]
-WebServerDev ansible_host=54.197.141.171 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
-WebServerProd ansible_host=34.228.8.52 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
+WebServerDev ansible_host=3.91.66.112 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes
+WebServerProd ansible_host=3.91.16.151 ansible_user=ec2-user ansible_ssh_private_key=/Users/alex-kay/ec2key1.pem  ansible_become=yes

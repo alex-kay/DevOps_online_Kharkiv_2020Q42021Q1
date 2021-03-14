@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "jenkins-main" {
-  ami           = "ami-038f1ca1bd58a5790"
+  ami           = var.ami
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-8080.name}"]
@@ -27,7 +27,7 @@ resource "aws_instance" "jenkins-main" {
 }
 
 resource "aws_instance" "jenkins-builder" {
-  ami           = "ami-038f1ca1bd58a5790"
+  ami           = var.ami
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-ssh.name}"]
@@ -38,10 +38,13 @@ resource "aws_instance" "jenkins-builder" {
   tags = {
     Name = "JenkinsBuilder"
   }
+  root_block_device {
+    volume_size = 28
+  }
 }
 
 resource "aws_instance" "web-server-dev" {
-  ami           = "ami-038f1ca1bd58a5790"
+  ami           = var.ami
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
@@ -54,7 +57,7 @@ resource "aws_instance" "web-server-dev" {
   }
 }
 resource "aws_instance" "web-server-prod" {
-  ami           = "ami-038f1ca1bd58a5790"
+  ami           = var.ami
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
@@ -131,29 +134,22 @@ resource "aws_security_group" "in-server" {
   }
 }
 
-# resource "aws_route53_zone" "jenkins" {
-#   name = "jenkins.alexkurylo.name"
-
-#   tags = {
-#     Environment = "dev"
-#   }
-# }
-# resource "aws_route53_record" "dev" {
-#   zone_id = "Z08976621BVTLFA2P15V8"
-#   name    = "dev.alexkurylo.name"
-#   type    = "A"
-#   ttl     = "300"
-#   records = [aws_instance.web-server-dev.public_ip]
-# }
-# resource "aws_route53_record" "prod" {
-#   zone_id = "Z08976621BVTLFA2P15V8"
-#   name    = "prod.alexkurylo.name"
-#   type    = "A"
-#   ttl     = "300"
-#   records = [aws_instance.web-server-prod.public_ip]
-# }
+resource "aws_route53_record" "dev" {
+  zone_id = var.zone53
+  name    = "dev.alexkurylo.name"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.web-server-dev.public_ip]
+}
+resource "aws_route53_record" "prod" {
+  zone_id = var.zone53
+  name    = "prod.alexkurylo.name"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.web-server-prod.public_ip]
+}
 resource "aws_route53_record" "jenkins" {
-  zone_id = "Z08976621BVTLFA2P15V8"
+  zone_id = var.zone53
   name    = "jenkins.alexkurylo.name"
   type    = "A"
   ttl     = "300"

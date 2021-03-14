@@ -1,14 +1,18 @@
 - hosts: jenkins
   tasks:
   - name: install latest node source
-    command: curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
-    become: yes
-  - name: install Java & git
+    shell: curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+  - name: install java, git, node
     yum:
       name:
       - java-1.8.0-openjdk-devel
       - git
       - nodejs
-      - npm
+      update_cache: yes
       state: present
-
+  - name: install npm
+    yum:
+      name:
+      - npm
+      update_cache: yes
+      state: present

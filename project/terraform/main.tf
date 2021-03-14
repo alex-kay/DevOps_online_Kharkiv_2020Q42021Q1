@@ -15,18 +15,11 @@ provider "aws" {
 resource "aws_instance" "jenkins-main" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
-  key_name      = "deployer"
+  key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-8080.name}"]
   user_data = <<-EOF
     #!/bin/bash
     echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    # sudo wget -O /etc/yum.repos.d/jenkins.repo \
-    # https://pkg.jenkins.io/redhat/jenkins.repo
-    # sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
-    # sudo yum upgrade
-    # sudo yum install jenkins java-1.8.0-openjdk-devel git -y
-    # sudo systemctl daemon-reload
-    # sudo systemctl start jenkins
     EOF
   tags = {
     Name = "JenkinsMain"
@@ -36,14 +29,11 @@ resource "aws_instance" "jenkins-main" {
 resource "aws_instance" "jenkins-builder" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
-  key_name      = "deployer"
+  key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-ssh.name}"]
   user_data = <<-EOF
     #!/bin/bash
     echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    curl -fsSL https://rpm.nodesource.com/setup_15.x | sudo bash -
-    sudo yum update -y
-    sudo yum install java-1.8.0-openjdk-devel nodejs npm -y
     EOF
   tags = {
     Name = "JenkinsBuilder"
@@ -53,7 +43,7 @@ resource "aws_instance" "jenkins-builder" {
 resource "aws_instance" "web-server-dev" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
-  key_name      = "deployer"
+  key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
   user_data = <<-EOF
     #!/bin/bash
@@ -66,7 +56,7 @@ resource "aws_instance" "web-server-dev" {
 resource "aws_instance" "web-server-prod" {
   ami           = "ami-038f1ca1bd58a5790"
   instance_type = "t2.micro"
-  key_name      = "deployer"
+  key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
   user_data = <<-EOF
     #!/bin/bash
@@ -77,10 +67,6 @@ resource "aws_instance" "web-server-prod" {
   }
 }
 
-# resource "aws_key_pair" "deployer" {
-#   key_name   = "deployer"
-#   public_key = "${var.KEYPUB}"
-# }
 resource "aws_security_group" "in-8080" {
   name = "allow-8080-sg"
   ingress {
@@ -143,4 +129,33 @@ resource "aws_security_group" "in-server" {
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+# resource "aws_route53_zone" "jenkins" {
+#   name = "jenkins.alexkurylo.name"
+
+#   tags = {
+#     Environment = "dev"
+#   }
+# }
+# resource "aws_route53_record" "dev" {
+#   zone_id = "Z08976621BVTLFA2P15V8"
+#   name    = "dev.alexkurylo.name"
+#   type    = "A"
+#   ttl     = "300"
+#   records = [aws_instance.web-server-dev.public_ip]
+# }
+# resource "aws_route53_record" "prod" {
+#   zone_id = "Z08976621BVTLFA2P15V8"
+#   name    = "prod.alexkurylo.name"
+#   type    = "A"
+#   ttl     = "300"
+#   records = [aws_instance.web-server-prod.public_ip]
+# }
+resource "aws_route53_record" "jenkins" {
+  zone_id = "Z08976621BVTLFA2P15V8"
+  name    = "jenkins.alexkurylo.name"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.jenkins-main.public_ip]
 }

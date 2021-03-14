@@ -1,0 +1,8 @@
+- hosts: jenkins
+  tasks:
+  - name: install Java & git
+    yum:
+      name:
+      - java-1.8.0-openjdk-devel
+      - git
+      state: present

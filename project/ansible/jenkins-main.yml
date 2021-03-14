@@ -1,0 +1,17 @@
+- hosts: jenkins
+  tasks:
+  - name: install docker
+    become: yes
+    command: amazon-linux-extras install docker -y
+  - name: add user to docker group
+    become: yes
+    command: usermod -a -G docker ec2-user
+  - name: Enable and Start docker Service
+    service:
+      name: docker
+      enabled: yes
+      state: started
+  - name: pull Jenkins image
+    command: docker pull jenkins/jenkins
+  - name: run Jenkins in docker
+    command: docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v /var/jenkins_home jenkins/jenkins

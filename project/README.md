@@ -8,13 +8,10 @@ Terraform creates 4 virtual machines on EC2 : jenkins-master, jenkins-builder, w
 Terraform puts a ssh-key for Ansible on created machines.done
 Then, Ansible installs needed software..done
 
+
 todo:
-- dockerize something
-- ansible vault sensitive data
+- dockerize something (like jenkins)
 - ansible make roles
-- make jenkinsfile
-- jenkins automate master-slave
+- ansible make cfg
 - jenkins build artifacts (to s3?)
-- blue-green deployment ?
-- docker to ECS ?
-- domain ?
+- deploy dev and master branches to respective servers

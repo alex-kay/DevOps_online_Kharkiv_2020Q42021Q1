@@ -13,7 +13,7 @@ variable "KEY_ANSIBLE" {
 }
 variable "ami" {
   description = "default Amazon Linux AMI"
-  type        = "string"
+  type        = string
   default     = "ami-038f1ca1bd58a5790"
 }
 variable "zone53" {

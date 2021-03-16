@@ -1,6 +1,0 @@
-[jenkins]
-JenkinsMain ansible_host=54.226.97.3 ansible_user=ec2-user ansible_become=yes # i-00ae796218006ff85
-JenkinsBuilder ansible_host=3.88.228.38 ansible_user=ec2-user ansible_become=yes # i-065c47ecac668725d
-[servers]
-WebServerDev ansible_host=3.89.127.31 ansible_user=ec2-user ansible_become=yes # i-016f84a03d3b3ae30
-WebServerProd ansible_host=52.91.198.225 ansible_user=ec2-user ansible_become=yes # i-0832fa11f40697413

@@ -15,5 +15,3 @@
     command: docker pull jenkins/jenkins
   - name: run Jenkins in docker
     command: docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v jenkinsvolume:/var/jenkins_home -d jenkins/jenkins
-  - name: show Jenkins password
-    command: docker container exec myjenkins sh -c 'cat /var/jenkins_home/secrets/initialAdminPassword'

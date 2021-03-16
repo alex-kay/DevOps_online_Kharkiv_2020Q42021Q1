@@ -17,10 +17,10 @@ resource "aws_instance" "jenkins-main" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-8080.name}"]
-  user_data = <<-EOF
-    #!/bin/bash
-    echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    EOF
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
+  #   EOF
   tags = {
     Name = "JenkinsMain"
   }
@@ -31,10 +31,10 @@ resource "aws_instance" "jenkins-builder" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-ssh.name}"]
-  user_data = <<-EOF
-    #!/bin/bash
-    echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    EOF
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
+  #   EOF
   tags = {
     Name = "JenkinsBuilder"
   }
@@ -48,10 +48,10 @@ resource "aws_instance" "web-server-dev" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
-  user_data = <<-EOF
-    #!/bin/bash
-    echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    EOF
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
+  #   EOF
   tags = {
     Name = "WebServerDev"
   }
@@ -61,10 +61,10 @@ resource "aws_instance" "web-server-prod" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
-  user_data = <<-EOF
-    #!/bin/bash
-    echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-    EOF
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
+  #   EOF
   tags = {
     Name = "WebServerProd"
   }

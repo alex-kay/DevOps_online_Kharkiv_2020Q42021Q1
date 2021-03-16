@@ -10,9 +10,3 @@
       - nodejs
       update_cache: yes
       state: present
-  - name: install npm
-    yum:
-      name:
-      - npm
-      update_cache: yes
-      state: present

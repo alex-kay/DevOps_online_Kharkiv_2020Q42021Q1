@@ -17,10 +17,6 @@ resource "aws_instance" "jenkins-main" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-8080.name}"]
-  # user_data = <<-EOF
-  #   #!/bin/bash
-  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-  #   EOF
   tags = {
     Name = "JenkinsMain"
   }
@@ -31,10 +27,6 @@ resource "aws_instance" "jenkins-builder" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-ssh.name}"]
-  # user_data = <<-EOF
-  #   #!/bin/bash
-  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-  #   EOF
   tags = {
     Name = "JenkinsBuilder"
   }
@@ -48,10 +40,6 @@ resource "aws_instance" "web-server-dev" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
-  # user_data = <<-EOF
-  #   #!/bin/bash
-  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-  #   EOF
   tags = {
     Name = "WebServerDev"
   }
@@ -61,14 +49,27 @@ resource "aws_instance" "web-server-prod" {
   instance_type = "t2.micro"
   key_name      = "ec2key1"
   security_groups = ["${aws_security_group.in-server.name}"]
-  # user_data = <<-EOF
-  #   #!/bin/bash
-  #   echo ${var.KEY_ANSIBLE} >> /home/ec2-user/.ssh/authorized_keys
-  #   EOF
   tags = {
     Name = "WebServerProd"
   }
 }
+resource "aws_eip" "j-main-eip" {
+  instance = aws_instance.jenkins-main.id
+  vpc      = true
+}
+resource "aws_eip" "j-builder-eip" {
+  instance = aws_instance.jenkins-builder.id
+  vpc      = true
+}
+resource "aws_eip" "web-dev-eip" {
+  instance = aws_instance.web-server-dev.id
+  vpc      = true
+}
+resource "aws_eip" "web-prod-eip" {
+  instance = aws_instance.web-server-prod.id
+  vpc      = true
+}
+
 
 resource "aws_security_group" "in-8080" {
   name = "allow-8080-sg"
@@ -139,19 +140,19 @@ resource "aws_route53_record" "dev" {
   name    = "dev.alexkurylo.name"
   type    = "A"
   ttl     = "300"
-  records = [aws_instance.web-server-dev.public_ip]
+  records = [aws_eip.web-dev-eip.public_ip]
 }
 resource "aws_route53_record" "prod" {
   zone_id = var.zone53
   name    = "prod.alexkurylo.name"
   type    = "A"
   ttl     = "300"
-  records = [aws_instance.web-server-prod.public_ip]
+  records = [aws_eip.web-prod-eip.public_ip]
 }
 resource "aws_route53_record" "jenkins" {
   zone_id = var.zone53
   name    = "jenkins.alexkurylo.name"
   type    = "A"
   ttl     = "300"
-  records = [aws_instance.jenkins-main.public_ip]
+  records = [aws_eip.j-main-eip.public_ip]
 }

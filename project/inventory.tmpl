@@ -1,6 +1,6 @@
 [jenkins]
-${j_m_name} ansible_host=${j_m_public_ip} ansible_user=ec2-user ansible_become=yes # ${j_m_id}
-${j_b_name} ansible_host=${j_b_public_ip} ansible_user=ec2-user ansible_become=yes # ${j_b_id}
+${j_m_name} ansible_host=${j_m_eip} ansible_user=ec2-user ansible_ssh_private_key_file=${ec2_key_file} ansible_become=yes # ${j_m_id}
+${j_b_name} ansible_host=${j_b_eip} ansible_user=ec2-user ansible_ssh_private_key_file=${ec2_key_file} ansible_become=yes # ${j_b_id}
 [servers]
-${w_s_dev_name} ansible_host=${w_s_dev_public_ip} ansible_user=ec2-user ansible_become=yes # ${w_s_dev_id}
-${w_s_prod_name} ansible_host=${w_s_prod_public_ip} ansible_user=ec2-user ansible_become=yes # ${w_s_prod_id}
+${w_s_dev_name} ansible_host=${w_s_dev_eip} ansible_user=ec2-user ansible_ssh_private_key_file=${ec2_key_file} ansible_become=yes # ${w_s_dev_id}
+${w_s_prod_name} ansible_host=${w_s_prod_eip} ansible_user=ec2-user ansible_ssh_private_key_file=${ec2_key_file} ansible_become=yes # ${w_s_prod_id}
